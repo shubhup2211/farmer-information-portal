@@ -6,17 +6,36 @@ $query = "SELECT * FROM schemes";
 $result = mysqli_query($conn, $query);
 ?>
 
-<h2>Schemes Information</h2>
+<div class="schemes-hero">
+    <h1 class="page-title">Schemes Information</h1>
 
-<?php
-while ($row = mysqli_fetch_assoc($result)) {
-?>
-    <div style="background:white; padding:10px; margin:10px;">
-        <h3><u><?php echo $row['scheme_name']; ?></u></h3>
-        <p><strong>Eligibility:</strong> <?php echo $row['eligibility']; ?></p>
-        <p><strong>Benefits:</strong><?php echo $row['benefits']; ?></p>
+    <div class="schemes-container">
+        
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+            <div class="scheme-card">
+                
+                <h2 class="scheme-name">
+                    <?php echo $row['scheme_name']; ?>
+                </h2>
+                
+                <div class="scheme-info">
+                    <span class="label-yellow">• Eligibility :</span>
+                    <?php echo $row['eligibility']; ?>
+                </div>
+
+                <div class="scheme-info">
+                    <span class="label-yellow">• Benefits :</span>
+                    <?php echo $row['benefits']; ?>
+                </div>
+
+            </div>
+        <?php
+        }
+        ?>
+
     </div>
-<?php
-}
-?>
+</div>
+
 <?php include("includes/footer.php"); ?>

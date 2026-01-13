@@ -1,0 +1,216 @@
+/* Admin Pages styling - dashboard, view_crop, view_scheme */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Background*/
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/farm_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh; 
+    overflow: auto; 
+}
+
+/*  Wrapper for Scrollable Content */
+.view-hero {
+    min-height: 100vh; 
+    height: auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    overflow: auto;
+    padding-top: 50px; 
+    padding-bottom: 50px; 
+}
+
+/* Admin Layout Container */
+.admin-wrapper {
+    display: flex; 
+    height: 100%;
+    width: 100%;
+}
+
+/* Dashboard Green Sidebar */
+.sidebar {
+    width: 280px; /* Fixed width */
+    background-color: #008000; 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    flex-shrink: 0; /* Prevents sidebar from squishing */
+    height: 100%;
+    overflow-y: auto; /* Scroll sidebar if menu is very long */
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.profile-icon {
+    font-size: 3rem;
+    border: 2px solid white;
+    border-radius: 50%; /* Circle shape */
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+/* --- Sidebar Menu links --- */
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    gap: 15px; /* Space between icon and text */
+}
+
+.sidebar-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.15); 
+}
+
+.sidebar-menu i {
+    width: 25px; /* Aligns icons */
+    text-align: center;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.welcome-text h1 {
+    color: #FFFF00; 
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+    line-height: 1.2;
+}
+
+.welcome-text span {
+    display: block; /* Puts Welcome "Admin" on a next line */
+}
+
+/* Table Styles View_crop and View_Scheme */
+
+/* Title on View_crop & View_Scheme */
+.page-title {
+    color: #FFFF00; 
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 4rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
+}
+
+.table-box {
+    width: 95%;
+    max-width: 1200px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.crop-table {
+    width: 100%;
+    border-collapse: collapse; /* Removes gaps between borders */
+    border-spacing: 0;
+    background-color: white;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Table headers */
+.crop-table thead {
+    background-color: #dcdcdc; 
+}
+
+.crop-table th {
+    padding: 18px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.05rem;
+    border-bottom: 2px solid #bbb;
+}
+
+/* Table Body */
+.crop-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    color: #000;
+}
+
+/* Alternating colors grey and white */
+.crop-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Thumbnail Images of crop */
+.table-img {
+    width: 70px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Action Button */
+.delete-btn {
+    color: #666;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.delete-btn:hover {
+    color: #dc3545;
+}
+
+/* Back to dashboard Link */
+.back-link {
+    display: block;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 25px;
+    opacity: 0.9;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    opacity: 1;
+}

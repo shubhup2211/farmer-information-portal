@@ -10,9 +10,9 @@ if(!isset($_SESSION['admin'])){
 
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-	$scheme_name = $_POST['scheme_name'] ?? '';
-	$eligibility = $_POST['eligibility'] ?? '' ;
-	$benefits = $_POST['benefits'] ?? '' ;
+	$scheme_name = $_POST['scheme_name'] ;
+	$eligibility = $_POST['eligibility'] ;
+	$benefits = $_POST['benefits'] ;
 	
 	if($scheme_name !="" && $eligibility !="" && $benefits !=""){
 		
@@ -33,30 +33,37 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 <!DOCTYPE html>
 <html>
 <head>
-<title> Add scheme </title>
-<link rel ="stylesheet" href ="../assests/css/style1.css">
+<title> Add Crop </title>
+<link rel ="stylesheet" href ="../assests/css/style.css">
+<link rel ="stylesheet" href ="../assests/css/style_contact.css">
 </head>
 <body>
-<h2> Add Government scheme </h2>
 
-<?php if (isset($msg)) echo "<p>$msg</p>"; ?>
+<div class="contact-hero">
+	
+	    <div class="message"> <?php if (isset($msg)) echo "<p>$msg</p>"; ?> </div>
+        
+        <h1 class="page-title">Add Scheme</h1>
 
+        <div class="contact-box">
+            <form action="" method="POST">
+                
+                <label class="contact-label">Name:</label>
+                <input type="text" name="scheme_name" class="contact-input" placeholder="Enter scheme name" required>
 
-<form method='post'>
+                <label class="contact-label">Eligibility:</label>
+                <textarea name="eligibility" class="contact-input" rows="3" placeholder="Enter eligibility about scheme" required></textarea>
 
-<label> Scheme name: </label> <br>
-<input type="text" name="scheme_name" required> <br> <br>
+                <label class="contact-label">Benefits:</label>
+                <textarea name="benefits" class="contact-input" rows="3" placeholder="Enter benefits of scheme" required></textarea>
 
-<label> Eligibility: </label> <br>
-<textarea name="eligibility" required> </textarea> <br><br>
+                <button type="submit" name="submit" class="submit-btn">Submit</button>
 
-<label> Benefits: </label> <br>
-<textarea name="benefits" required> </textarea> <br> <br>
+            </form>
+        </div>
 
-<button type="submit" name="submit"> Submit </button>
+        <a href="dashboard.php" style="color: white; text-decoration: none; margin-top: 20px; font-size: 1.1rem;"> Back to dashboard </a>
 
-<p> <a href="dashboard.php">Back to dashboard</a></p>
-
-</form>
+    </div>
 </body>
 </html>

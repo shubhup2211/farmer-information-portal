@@ -11,17 +11,43 @@ if(!isset($_SESSION['admin'])){
 <!DOCTYPE html>
 <html>
 <head>
-<link rel ="stylesheet" href ="../assests/css/style1.css">
+<title>Admin Dashboard - Farmer's Friend</title>
+    
+    <link rel="stylesheet" href="../assests/css/style_admin.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<h2> Admin Dashboard </h2>
+<body>
 
-<p> Welcome, <?php echo $_SESSION['admin']; ?> </p>
+    <div class="admin-wrapper">
+        
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="profile-icon">
+                    <i class="far fa-user"></i>
+                </div>
+                <h2>Admin<br>Dashboard</h2>
+            </div>
 
-<ul>
-<li> <a href="add_crop.php"> Add Crop </a></li>
-<li> <a href="view_crop.php"> View Crop </a></li>
-<li> <a href="add_schemes.php"> Add Scheme </a></li>
-<li> <a href="view_schemes.php"> View Schemes </a></li>
-<li> <a href="logout.php"> Logout </a></li>
-</ul>
+            <ul class="sidebar-menu">
+                <li> <a href="add_crop.php"> <i class="fas fa-plus-square"></i> Add Crop </a> </li>
+                
+                <li> <a href="view_crop.php"> <i class="fas fa-eye"></i> View Crops </a> </li>
+
+                <li> <a href="add_schemes.php"> <i class="fas fa-plus-square"></i> Add Scheme </a> </li>
+
+                <li> <a href="view_schemes.php"> <i class="fas fa-eye"></i> View Schemes </a> </li>
+
+                <li> <a href="logout.php"> <i class="fas fa-cog"></i> Logout </a> </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="welcome-text">
+                <h1>Welcome<br><span>Admin</span></h1>
+            </div>
+        </main>
+
+    </div>
+</body>
 </html>

@@ -19,40 +19,55 @@ $result = mysqli_query($conn, "SELECT * FROM schemes");
 <!DOCTYPE html>
 <html>
 <head>
-<title> View schemes </title>
-<link rel ="stylesheet" href ="../assests/css/style1.css">
+<title> View Crops </title>
+<link rel ="stylesheet" href ="../assests/css/style_admin.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-<h2> Government Schemes</h2>
 
-<table border="1" cellpadding="10">
+<div class="view-hero">
+        
+        <div class="table-box">
+            
+            <h1 class="page-title">Schemes Information</h1>
 
-<tr>
-<th> Scheme Id </th>
-<th> Scheme Name </th>
-<th> Eligibility </th>
-<th> Benefits </th>
-<th> Action </th>
-</tr>
+            <table class="crop-table">
+                <thead>
+                    <tr>
+                        <th>Scheme ID</th>
+                        <th>Scheme Name</th>
+                        <th>Eligibility</th>
+                        <th>Benefits</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                    <tr>
+                        <td><?php echo $row['scheme_id']; ?></td>
+						
+						<td><?php echo $row['scheme_name']; ?></td>
+                        
+                        <td style="max-width: 300px;"> <?php echo $row['eligibility']; ?></td>
+                        
+                        <td style="max-width: 300px;"> <?php echo $row['benefits']; ?></td>
 
-<?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                        <td> <a href="view_schemes.php?delete=<?php echo $row['scheme_id']; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this scheme?')">
+                             <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php 
+                    } 
+                    ?>
+                </tbody>
+            </table>
 
-<tr>
-<td> <?php echo $row['scheme_id']; ?> </td>
-<td> <?php echo $row['scheme_name'];?> </td>
-<td> <?php echo $row['eligibility'];?> </td>
-<td> <?php echo $row['benefits'];?> </td>
-<td> 
-<a href= "view_schemes.php?delete=<?php echo $row['scheme_id']; ?>"
-onclick="return confirm('Are you sure?')"> Delete </a>
- </td>
-</tr>
+        </div>
 
-<?php } ?>
+        <a href="dashboard.php" style="color: white; text-decoration: none; font-size: 1.1rem;"> Back to dashboard </a>
 
-</table>
-
-<p> <a href="dashboard.php"> Back to dashboard </a></p>
-
+    </div>
 </body>
 </html>

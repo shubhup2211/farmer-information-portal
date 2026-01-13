@@ -1,41 +1,53 @@
 <?php
+include("includes/db.php");
 //Feedback message
 $success = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-	$name = $_POST['name'] ??'';
-	$email = $_POST['email'] ??'';
-	$message = $_POST['message'] ??'';
-	
-	if($name != "" && $email != "" && $message != ""){
-		$success = "Your message received successfully";
-	} else {
-		$success = "All fields required!";
-	}
+	$name = $_POST['name'] ;
+	$email = $_POST['email'] ;
+	$message = $_POST['message'] ;
+
+    if($name != "" && $email != "" && $message != ""){
+        $query = "INSERT INTO contact (name, email, message) VALUES ('$name','$email','$message')";
+
+        if(mysqli_query($conn,$query)){
+            $success = "Your message sent successfully!";
+            } else {
+                $success = "Something went wrong!";
+            }                
+    } else {
+        $success = "All fields required!";
+    }
 } 
 ?>
 
 <?php include("includes/header.php"); ?>
 
-<h2>Contact Us</h2>
 
-<?php
-if ($success != "") {
-    echo "<p>$success</p>";
-}
-?>
+<div class="contact-hero">
+    
+    <div class="message"> <?php if ($success != "") {echo "<p>$success</p>";}?> </div>
+        
+        <h1 class="page-title">Contact Us</h1>
 
-<form method="post">
-    <label>Name:</label><br>
-    <input type="text" name="name" required><br><br>
+        <div class="contact-box">
+            <form action="" method="POST">
+                
+                <label class="contact-label">Name:</label>
+                <input type="text" name="name" class="contact-input" placeholder="Enter your name" required>
 
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br><br>
+                <label class="contact-label">Email:</label>
+                <input type="email" name="email" class="contact-input" placeholder="Enter your email" required>
 
-    <label>Message:</label><br>
-    <textarea name="message" required></textarea><br><br>
+                <label class="contact-label">Message:</label>
+                <textarea name="message" class="contact-input" rows="4" placeholder="Enter your query or request" required></textarea>
 
-    <button type="submit">Send Message</button>
-</form>
+                <button type="submit" name="submit" class="submit-btn">Submit</button>
+
+            </form>
+        </div>
+
+    </div>
 
 <?php include("includes/footer.php"); ?>

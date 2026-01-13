@@ -22,24 +22,30 @@ if (isset($_POST['login'])){
 <html>
 <head>
 <title> Admin Login </title>
-<link rel ="stylesheet" href ="../assests/css/style1.css">
+<link rel ="stylesheet" href ="../assests/css/style.css">
+<link rel ="stylesheet" href ="../assests/css/style_contact.css">
 </head>
 <body>
 
-<h2> Admin Login </h2>
+<div class="contact-hero">
+	
+	    <div class="message"> <?php if (isset($msg)) echo "<p>$error</p>"; ?> </div>
+        
+        <h1 class="page-title">Admin Login</h1>
 
-<?php if (isset($error)) { echo "<p style='color:red;'>$error</p>"; } ?>
+        <div class="contact-box">
+            <form action="" method="POST">
+                
+                <label class="contact-label">UserName:</label>
+                <input type="text" name="username" class="contact-input" placeholder="Enter Username" required>
 
-<form method = "post" >
+                <label class="contact-label">Password:</label>
+                <input type="password" name="password" class="contact-input" placeholder="Enter Password" required>
 
-<label> Username: </label> <br>
-<input type="text" name="username" required> <br> <br>
+                <button type="submit" name="login" class="submit-btn">Login</button>
 
-<label> Password: </label> <br>
-<input type="password" name="password" required> <br> <br>
-
-<button type="submit" name="login"> Login </button>
-</form>
-
+            </form>
+        </div>
+    </div>
 </body>
 </html>
