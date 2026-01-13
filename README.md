@@ -11,7 +11,7 @@ It provides a public interface to view information and an admin panel to manage 
 
 ## Features
 
-ADMIN SIDE
+- User-friendly and visually rich UI designed using Figma
 - Admin login using PHP sessions
 - Admin dashboard to navigate 
 - Add, view, and delete crop information  
@@ -19,17 +19,12 @@ ADMIN SIDE
 - Contact Us feature to collect user queries and store them in the database  
 - Clean and modular project structure
 
-VIEWER SIDE
-- View crops information
-- View Schemes information
-- Raise query using contact us form
-
 
 ## Technologies Used
 
 - HTML  
 - CSS
-- Figma
+- Figma (UI design)
 - PHP  
 - MySQL  
 
